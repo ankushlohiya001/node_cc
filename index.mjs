@@ -1,16 +1,7 @@
-async function main(){
-  let t = await read();
-  for(let i=0;i<t;i++){
-    const [a, b] = (await read_vec()).map(int);
-    print(a+b);
-    print("\n");
-  }
-}
-
 process.stdin.pause();
 process.stdin.setEncoding("utf8");
 
-function read() {
+export function read() {
   return new Promise((res, rej) => {
     if (input.buffer.length > 0) {
       setImmediate(() => {
@@ -31,27 +22,30 @@ function read() {
   });
 }
 input.buffer = [];
-async function input(txt=""){
+
+export async function input(txt = "") {
   print(txt);
   return await read();
 }
 
-async function read_vec(){
+export async function read_vec() {
   return (await read()).split(" ");
 }
 
-function int(any){
-  return typeof any == "number" ? Math.floor(any) : parseInt(any)
+export function int(any) {
+  return typeof any == "number" ? Math.floor(any) : parseInt(any);
 }
 
-function float(any){
-  return typeof any == "number" ? any : parseFloat(any)
+export function float(any) {
+  return typeof any == "number" ? any : parseFloat(any);
 }
 
-function print(txt){
+export function print(txt) {
   return process.stdout.write(String(txt));
 }
 
-process.stdout.cork();
-main();
-process.stdout.uncork();
+export function run(main) {
+  process.stdout.cork();
+  main();
+  process.stdout.uncork();
+}
