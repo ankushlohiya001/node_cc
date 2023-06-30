@@ -1,0 +1,14 @@
+{
+  "name": "node_cc",
+  "version": "0.1.1",
+  "description": "Javascript package for competitive Coding",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cc"
+  ],
+  "author": "",
+  "license": "ISC"
+}
